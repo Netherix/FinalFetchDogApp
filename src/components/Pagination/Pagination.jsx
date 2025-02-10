@@ -18,8 +18,8 @@ const Pagination = ({ setPage }) => {
 };
 
 Pagination.propTypes = {
-  page: PropTypes.number.isRequired,   // page should be a number
-  setPage: PropTypes.func.isRequired,   // setPage should be a function
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,   
 };
 
 export default Pagination;

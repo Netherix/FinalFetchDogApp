@@ -19,13 +19,13 @@ const Login = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          credentials: "include", // Ensures cookies are sent
+          credentials: "include",
           body: JSON.stringify({ name, email }),
         }
       );
 
       if (response.ok) {
-        navigate("/search"); // Redirect to search page on success
+        navigate("/search");
       } else {
         console.error("Login failed");
       }

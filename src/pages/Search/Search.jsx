@@ -67,7 +67,7 @@ const Search = () => {
         setSelectedBreed={setSelectedBreed}
       />
 
-<Pagination page={page} setPage={setPage} />
+      <Pagination page={page} setPage={setPage} />
 
       <div className="match-container">
         <h2>Find Your Perfect Match:</h2>
@@ -83,8 +83,6 @@ const Search = () => {
         favorites={favorites}
         toggleFavorite={toggleFavorite}
       />
-
-      
     </>
   );
 };
