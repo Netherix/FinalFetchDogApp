@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchBreeds, fetchDogs } from "../../api/fetchAPI";
 import "./Search.css";
@@ -25,13 +25,13 @@ const Search = () => {
     setFavorites(storedFavorites);
   }, []);
 
-  const loadDogs = useCallback(async () => {
-    setDogs(await fetchDogs(selectedBreed, page, sortOrder));
-  }, [selectedBreed, page, sortOrder]);
-
   useEffect(() => {
+    const loadDogs = async () => {
+      setDogs(await fetchDogs(selectedBreed, page, sortOrder));
+    };
+    
     loadDogs();
-  }, [loadDogs]);
+  }, [selectedBreed, page, sortOrder]);
 
   const toggleFavorite = (dog) => {
     setFavorites((prev) => {

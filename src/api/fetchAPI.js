@@ -13,7 +13,7 @@ export const fetchBreeds = async () => {
 };
 
 // Fetch dogs based on search criteria
-export const fetchDogs = async (selectedBreed, page, sortOrder) => {
+export const fetchDogs = async (selectedBreed, page, sortOrder) => { 
   try {
     const query = new URLSearchParams({
       size: 10,
