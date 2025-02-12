@@ -12,6 +12,26 @@ export const fetchBreeds = async () => {
   }
 };
 
+// Fetch detailed information for specific dogs
+export const fetchDogDetails = async (dogIds) => {
+  try {
+    if (!dogIds.length) return [];
+
+    const res = await fetch(`${API_BASE}/dogs`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dogIds),
+    });
+
+    if (!res.ok) throw new Error("Failed to fetch dog details");
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching dog details:", error);
+    return [];
+  }
+};
+
 // Fetch dogs based on search criteria
 export const fetchDogs = async (selectedBreed, page, sortOrder) => { 
   try {
@@ -30,26 +50,6 @@ export const fetchDogs = async (selectedBreed, page, sortOrder) => {
     return await fetchDogDetails(resultIds);
   } catch (error) {
     console.error("Error fetching dogs:", error);
-    return [];
-  }
-};
-
-// Fetch detailed information for specific dogs
-export const fetchDogDetails = async (dogIds) => {
-  try {
-    if (!dogIds.length) return [];
-
-    const res = await fetch(`${API_BASE}/dogs`, {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dogIds),
-    });
-
-    if (!res.ok) throw new Error("Failed to fetch dog details");
-    return await res.json();
-  } catch (error) {
-    console.error("Error fetching dog details:", error);
     return [];
   }
 };
